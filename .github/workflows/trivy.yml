@@ -12,7 +12,7 @@ jobs:
       
     - name: trivy scan
       run: |
-        curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s << -b /usr/local/bin
+        curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
         trivy image -f json -o trivy-report.json ghcr.io/terraform-linters/tflint
         cat trivy-report.json
       
